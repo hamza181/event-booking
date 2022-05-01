@@ -1,0 +1,19 @@
+for query run on graphql playground
+
+query {
+  events {
+    title
+    _id
+  }
+}
+
+for mutation run on graphql playground
+
+mutation {
+  createEvent(eventInput:{title:"Hamza", description:"asdfasdf", price: 9.3, date: "2022-05-01T18:13:22.384Z"}){
+    title
+    description
+    price
+    date
+  }
+}
