@@ -1,3 +1,24 @@
-.main-content{
-  margin: 4rem 2.5rem;
+@import '~antd/dist/antd.css';
+
+.nav-link a, .navbar-brand a {
+  text-decoration: none;
+}
+
+.navbar-nav a{
+  display: block;
+  padding: 0rem 0.6rem;
+  text-decoration: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+  color: #ffffff8c;
+}
+
+.nav-link a, .navbar-brand a:hover {
+  color: #ffffff8c;
+}
+.nav-link a:hover, .navbar-brand a {
+  color: #fff;
+}
+
+.ant-picker-dropdown{
+  z-index: 9999;
 }

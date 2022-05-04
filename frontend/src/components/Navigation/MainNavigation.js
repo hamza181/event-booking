@@ -1,26 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './MainNavigation.css'
+import { Navbar, Container, Nav } from "react-bootstrap";
+import AuthContext from "../../context/auth-context";
 
 const mainNavigation = (props) => (
-  <header className="main-navigation">
-    <div className="main-navigation__logo">
-      <h1>Easy Event</h1>
-    </div>
-    <nav className="main-navigation__item">
-      <ul>
-        <li>
-          <Link to="/auth">Authenticate</Link>
-        </li>
-        <li>
-          <Link to="/events">Events</Link>
-        </li>
-        <li>
-          <Link to="/bookings">Bookings</Link>
-        </li>
-      </ul>
-    </nav>
-  </header>
+  <AuthContext.Consumer>
+    {(context) => {
+      return (
+        <Navbar bg="dark" variant="dark">
+          <Container>
+            <Navbar.Brand>
+              <Link to="/">Event Booking</Link>
+            </Navbar.Brand>
+            <Nav className="me-auto">
+              {!context.token && <Link to="/auth">Authentication</Link>}
+              <Link to="/events">Events</Link>
+              {context.token && <Link to="/bookings">Bookings</Link>}
+              {context.token && <Link to="/auth" onClick={context.logout}>Logout</Link>}
+            </Nav>
+          </Container>
+        </Navbar>
+      );
+    }}
+  </AuthContext.Consumer>
 );
 
 export default mainNavigation;

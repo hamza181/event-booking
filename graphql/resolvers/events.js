@@ -14,6 +14,7 @@ module.exports = {
     }
   },
   createEvent: async (args, req) => {
+    
     // for auth middleware
     if (!req.isAuth) {
       throw new Error("Unauthenticated");
